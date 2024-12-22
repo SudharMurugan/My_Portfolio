@@ -6,6 +6,84 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+/* Preloader Logo */
+.preloader-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+/* Logo Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Preloader Spinner */
+.preloader-spinner {
+    border: 6px solid rgba(255, 255, 255, 0.2);
+    border-top: 6px solid #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Loading Text */
+.preloader-text {
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1.5s infinite;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Hide content until preloader is done */
+body.loading main {
+    visibility: hidden;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -13,13 +91,14 @@ html {
 body {
     color: #fff;
     line-height: 1.6;
-    background-color: #0f0c29;
     background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-    background-image: url("../IMAGES/DALL·E\ 2024-12-14\ 19.21.12\ -\ A\ modern\,\ minimalistic\ background\ image\ with\ abstract\ geometric\ shapes\,\ soft\ gradients\,\ and\ a\ subtle\ tech-inspired\ design.\ It\ should\ have\ a\ profession.webp");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    background-image: url("../IMAGES/DALL·E\ 2024-12-14\ 19.21.12\ -\ A\ modern\,\ minimalistic\ background\ image\ with\ abstract\ geometric\ shapes\,\ soft\ gradients\,\ and\ a\ subtle\ tech-inspired\ design.\ It\ should\ have\ a\ profession.webp");
+    background-color: #0f0c29;
 }
+
 body::before {
     content: '';
     position: fixed;
@@ -27,18 +106,22 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(58,58,158,0.8), rgba(18,18,20,0.9));
+    background: radial-gradient(circle, rgba(58, 58, 158, 0.8), rgba(18, 18, 20, 0.9));
     z-index: -1;
     animation: backgroundAnimation 15s infinite alternate;
 }
 
 @keyframes backgroundAnimation {
-    0% { opacity: 0.9; }
-    100% { opacity: 0.8; }
+    0% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
 }
 
-
-/* Navbar Styling */
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -48,6 +131,7 @@ body::before {
 
 .navbar .logo {
     height: 80px;
+    border-radius: 50px;
 }
 
 .navbar ul {
@@ -79,13 +163,11 @@ body::before {
 }
 
 .hero h1 {
-    /* font-size: 3rem; */
     margin-bottom: 10px;
     font-size: 48px;
     font-weight: bold;
     animation: fadeIn 2s ease-in-out;
 }
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -106,6 +188,7 @@ body::before {
     100% { transform: rotate(0deg); }
   }
 
+
 .hero-subtitle {
     display: inline-block;
     font-size: 24px;
@@ -114,12 +197,29 @@ body::before {
     overflow: hidden;
     border-right: 2px solid black;
     animation: blink 0.8s step-end infinite;
-  }
-  
-  @keyframes blink {
-    50% { border-right: 2px solid transparent; }
-  }
+}
+
+@keyframes blink {
+    50% {
+        border-right: 2px solid transparent;
+    }
+}
+
+.hero-img {
+    width: 400px;
+    height: 400px;
+    border-radius: 60%;
+    object-fit: cover;
+    margin-top: 20px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     
+}
+
+.hero-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
 .main-name {
     font-size: 4rem;
     color: #915eff;
@@ -130,7 +230,7 @@ body::before {
 .about {
     text-align: center;
     padding: 80px 20px;
-     color: #fff;
+    color: #fff;
 }
 
 .about h2 {
@@ -146,7 +246,6 @@ body::before {
 .highlight {
     color: #f39c12;
 }
-
 .about-content {
     display: flex;
     justify-content: center;
@@ -165,22 +264,17 @@ body::before {
     font-weight: 500;
     animation: slideInFromLeft 0.8s ease-out;
 }
-
 .about-image {
-    flex: 1;
+    /* flex: 1; */
     text-align: center;
     align-items: center;
     animation: fadeInFromRight 0.8s ease-out;
 }
-
 .about-image img {
     width: 400px;
     height: 400px;
     border-radius: 50%;
-    /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); */
-    /* border: 5px solid #ff6f61; */
 }
-
 .cta-btn {
     display: inline-block;
     padding: 12px 25px;
@@ -233,7 +327,6 @@ body::before {
         opacity: 1;
     }
 }
-
 /* Projects Section */
 .projects {
     text-align: center;
@@ -247,6 +340,7 @@ body::before {
 
 .project-cards {
     display: flex;
+    text-align: justify;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
@@ -265,6 +359,11 @@ body::before {
     padding: 20px;
     transition: transform 0.3s ease;
 }
+.card p{
+    text-align: justify;
+    line-height: 1.6;
+    margin: 10px 0;
+}
 
 .card img {
     width: 100%;
@@ -273,7 +372,6 @@ body::before {
     border-radius: 8px;
     margin-bottom: 10px;
 }
-
 .card .read-more-btn {
     margin-top: 10px;
     padding: 10px 20px;
@@ -289,6 +387,7 @@ body::before {
 .card .read-more-btn:hover {
     background: #7a4be1;
 }
+
 
 .card:hover {
     transform: scale(1.05);
@@ -310,13 +409,10 @@ body::before {
     max-width: 450px;
     padding: 20px;
 }
-
 .contact-left h2 {
     font-size: 1.95rem;
     color: #915eff;
     margin-bottom: 15px;
-    /* General Styling for Text */
-
     font-size: 32px;
     font-weight: bold;
     animation: fadeIn 2s ease-in-out;
@@ -360,7 +456,6 @@ body::before {
       transform: translateY(0);
     }
   }
-  
 
 .social-links a {
     color: #fff;
@@ -378,9 +473,15 @@ body::before {
     padding: 20px;
     border-radius: 10px;
 }
-
+.contact-left .animated-text {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideUp 2s ease-in-out forwards;
+    text-align: justify; /* Added for justification */
+}
 .contact-right input,
-.contact-right select,
 .contact-right textarea {
     width: 100%;
     padding: 12px;
@@ -403,6 +504,13 @@ body::before {
     transition: background-color 0.3s ease;
 }
 
+/* Contact Section */
+.contact-left p,
+.contact-right form input,
+.contact-right form textarea {
+    text-align: justify; /* Added for justification */
+}
+
 .contact-right button:hover {
     background: #7a4be1;
 }
@@ -416,4 +524,34 @@ footer {
 
 footer small {
     font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content, .project-cards, .contact {
+        overflow: hidden;
+        flex-direction: column;
+        align-items: center;
+        text-align: justify;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .card {
+        width: 90%;
+    }
 }

@@ -31,6 +31,7 @@ body::before {
 
 .navbar .logo {
     height: 80px;
+    border-radius: 50px;
 }
 
 .navbar ul {
@@ -114,18 +115,27 @@ body::before {
     font-weight: 600;
 }
 
-#about .profile-img {
-    width: 250px;
+.about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Adjust spacing */
+}
+
+.profile-img {
+    width: 250px; /* Adjust size as needed */
     height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover; /* Ensures the image looks neat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth effect */
 }
 
 .profile-img:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
 }
-
+    
 .read-more-btn {
     background-color: #915eff;
     color: #fff;
@@ -163,8 +173,8 @@ body::before {
     background-color: #222;
     color: #fff;
     margin: 2rem 0;
-    border-radius: 10px;
-    /* overflow: hidden; */
+    border-radius: 12px;
+    overflow: hidden;
 }
 #skills h2 {
     color: #915eff;
@@ -187,17 +197,26 @@ body::before {
 }
 
 .skill {
-    background: #333;
-    padding: 15px ;
-    font-size: 1.5rem;
+    background: #333; 
+    padding: 10px;
     text-align: center;
-    width: 85px;
-    border-radius: 8px;
+    width: 100px; 
+    height: 120px; 
+    border-radius: 10px;
     transition: transform 0.3s ease, background-color 0.3s ease;
     color: #fff;
-    height: 100px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.fab {
+    font-size: 50px; /* Adjust the size of the icon */
 }
 
+.skill i {
+    font-size: 50px; /* Ensure uniform size */
+    color: #4479A1; /* Icon color for database */
+}   
 .skill:hover {
     background-color: #915eff;
     transform: translateY(-5px);
@@ -262,4 +281,69 @@ footer {
     padding: 1rem 0;
     text-align: center;
     margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        /* align-items: flex-start; */
+        background-color: #1e1b3a;
+        /* position: absolute; */
+        top: 80px;
+        /* left: 0; */
+        /* width: 100%; */
+        /* display: none; */
+        gap: 12px;
+    }
+    .navbar ul li a i {
+        font-size: 1.2rem; /* Slightly smaller size for mobile */
+    }
+
+    .navbar img.logo {
+        margin-top: 7px;
+        height: 70px; /* Adjust the logo size */
+    }
+
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .about-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-section p {
+        font-size: 0.95rem;
+    }
+
+    .about-section {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar .logo {
+        height: 40px;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .about-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-section p {
+        font-size: 0.9rem;
+    }
+
+    .about-section {
+        padding: 1rem 0.5rem;
+    }
 }

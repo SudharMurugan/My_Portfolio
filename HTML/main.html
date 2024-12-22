@@ -10,9 +10,31 @@
     <link rel="stylesheet" href="../CSS/main.css">
     <link rel="icon" href="../IMAGES/favicon.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("m0Qys4yWujaIA0Q4J");
+        })(); 
+    </script>
+
 </head>
 
 <body>
+
+    <div id="preloader">
+        <div class="preloader-content">
+            <!-- Logo or Branding -->
+            <img src="../IMAGES/logo.jpeg" alt="Logo" class="preloader-logo">
+
+            <!-- Animated Loader -->
+            <div class="preloader-spinner"></div>
+
+            <!-- Loading Text -->
+            <p class="preloader-text">Loading your experience...</p>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <header>
         <nav class="navbar">
@@ -28,29 +50,29 @@
         <h1>Hi There! <span class="wave">👋</span></h1>
         <h1 class="main-name">I'M <strong>Sudharshan Murugan</strong></h1>
         <h2 class="hero-subtitle">Creative Web Developer | Software Engineer | Freelancer</h2>
-        <img src="../IMAGES/avatar.svg" alt="Illustration of a web developer at work" class="hero-img">
+        <img src="../IMAGES/IMG_20241216_192715.jpg" alt="Illustration of a web developer at work" class="hero-img">
     </section>
 
     <!-- About Section -->
-<section id="about" class="about">
-    <div class="container">
-        <h2>LET ME <span class="highlight">INTRODUCE</span> MYSELF</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I fell in love with programming and continue learning and growing every day.</p>
-                <p>
-                    Fluent in classics like <span class="highlight">Python, HTML, CSS, JavaScript</span>.
-                    My interests include building <span class="highlight">Web Technologies</span> and
-                    exploring <span class="highlight">Machine Learning</span>.
-                </p>
-                <a href="../HTML/about.html" class="cta-btn">More About Me</a>
-            </div>
-            <div class="about-image">
-                <img src="../IMAGES/about.png" alt="Profile picture of Sudharshan Murugan" class="profile-img">
+    <section id="about" class="about">
+        <div class="container">
+            <h2>LET ME <span class="highlight">INTRODUCE</span> MYSELF</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I fell in love with programming and continue learning and growing every day.</p>
+                    <p>
+                        Fluent in classics like <span class="highlight">Python, HTML, CSS, JavaScript</span>.
+                        My interests include building <span class="highlight">Web Technologies</span> and
+                        exploring <span class="highlight">Machine Learning</span>.
+                    </p>
+                    <a href="../HTML/about.html" class="cta-btn">More About Me</a>
+                </div>
+                <div class="about-image">
+                    <img src="../IMAGES/about.png" alt="Profile picture of Sudharshan Murugan" class="profile-img">
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Projects Section -->
     <section class="projects" id="projects">
@@ -61,18 +83,16 @@
             <div class="card">
                 <img src="../IMAGES/sms.jpeg.jpg" alt="Inventory Tracker">
                 <p><strong>Title:</strong> Stack Management System</p>
-                <p><strong>Overview:</strong> Designed and developed an inventory management system with advanced
-                    features to optimize product tracking.</p>
-                    <a href="../HTML/project.html"><button class="read-more-btn">Read More</button></a>
+                <p><strong>Overview:</strong> Developed an inventory management system with advanced features to optimize product tracking.</p>
+                <a href="../HTML/project.html"><button class="read-more-btn">Read More</button></a>
             </div>
 
             <!-- Postgraduate Major Project -->
             <div class="card">
                 <img src="../IMAGES/LungCAncer.jpg" alt=" Lung Cancer Prediction">
                 <p><strong>Title:</strong> Lung Cancer Detector</p>
-                <p><strong>Overview:</strong> Implemented a deep learning model for early lung cancer detection using CT
-                    scan images and Efficient B0 CNN architecture.</p>
-                    <a href="../HTML/project.html"><button class="read-more-btn">Read More</button></a>
+                <p><strong>Overview:</strong> Implemented a deep learning model for early lung cancer detection using CT scans effectively.</p>
+                <a href="../HTML/project.html"><button class="read-more-btn">Read More</button></a>
             </div>
 
         </div>
@@ -80,11 +100,12 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        
+
         <div class="contact-left">
-                <h2>Let's Connect & Make Something Awesome Together! <span class="handshake">🤝</span></h2>
-              
-                <p class="animated-text">Whether it's a job opportunity, collaboration, or a friendly chat, I'd love to hear from you!</p>
+            <h2>Let's Connect & Make Something Awesome Together! <span class="handshake">🤝</span></h2>
+
+            <p class="animated-text">Whether it's a job opportunity, collaboration, or a friendly chat, I'd love to hear
+                from you!</p>
 
             <div class="social-links">
                 <a href="https://github.com/SudharMurugan" target="_blank"><i class="fab fa-github"></i></a>
@@ -95,20 +116,82 @@
             </div>
         </div>
         <div class="contact-right">
-            <form>
+            <form id="contact-form">
                 <h2>Feel free to connect with me!</h2>
-                <input type="text" placeholder="Enter your name" required>
-                <input type="email" placeholder="Enter your email" required>
-                <textarea rows="4" placeholder="Type your message here..." required></textarea>
-                <button type="submit">Send Message</button>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <textarea name="message" id="message" rows="4" placeholder="Type your message here..."
+                    required></textarea>
+                <button onclick="sendemail()" type="button">Send Message</button>
             </form>
         </div>
+
     </section>
 
     <footer>
         <small>&copy; 2024 Sudharshan Murugan & Built with ❤️.</small>
     </footer>
     <script>
+
+        function sendemail() {
+            var from_name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+
+            var templateParams = {
+                email: email,
+                from_name: from_name,
+                message: message,
+            };
+
+            emailjs.send('service_2epk9bv', 'template_xokonm8', templateParams)
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+
+                    // Show a success alert with SweetAlert2
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Message Sent!',
+                        text: 'Thank you for connecting. I will get back to you soon!',
+                        confirmButtonText: 'OK',
+                        timer: 3000,
+                        timerProgressBar: true
+                    });
+
+                    // Clear the form inputs after success
+                    document.getElementById("contact-form").reset();
+
+                }, function (error) {
+                    console.log('FAILED...', error);
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Failed to send your message. Please try again later.',
+                        confirmButtonText: 'Retry',
+                    });
+
+                });
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const preloader = document.getElementById("preloader");
+
+            // Wait until all images and assets are loaded
+            window.onload = function () {
+                // Optional delay to simulate loading effect
+                setTimeout(() => {
+                    preloader.style.opacity = "0"; // Smooth fade-out
+                    preloader.style.transition = "opacity 0.5s ease-in-out";
+                    setTimeout(() => {
+                        preloader.style.display = "none"; // Remove preloader after fade-out
+                        document.body.classList.remove("loading"); // Show main content
+                    }, 500); // Match this duration to the transition time
+                }, 1500); // Optional delay before fade-out starts
+            };
+        });
+
         const texts = [
             "Creative Frontend Developer ",
             "Software Engineer ",
