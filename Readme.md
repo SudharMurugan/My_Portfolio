@@ -21,7 +21,7 @@ I believe in continuous learning, collaboration, and pushing the boundaries of w
 
 Outside of coding, I enjoy playing sports ⚽, exploring new places 🌍, and spending time with friends 🎉.
 Always experimenting with new tools and technologies to enhance my skill set.
-🔗 Let’s Connect: 🌐 My Portfolio ("https://sudharmurugan.github.io/portfolio/HTML/main.html")
+🔗 Let’s Connect: 🌐 My Portfolio ("https://sudharmurugan.github.io/My_Portfolio/HTML/main.html")
 📝 Blog (Coming Soon!)
 📧 Email: sudharshan100002@gmail.com
 Feel free to explore my repositories to see the projects I'm working on. I’m always open to feedback and collaboration!
